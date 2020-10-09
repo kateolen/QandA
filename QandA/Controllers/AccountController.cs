@@ -8,7 +8,13 @@ namespace QandA.Controllers
 {
     public class AccountController : Controller
     {
-        public IActionResult Index()
+        // account/signin
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+
+        public IActionResult Register() 
         {
             return View();
         }

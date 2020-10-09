@@ -1,14 +1,24 @@
-﻿@{
+﻿@model List<QandA.Data.Question>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="header">
     <h5>Unanswered Questions</h5>
-    <a href="#" class="primary-button">Ask a question</a>
+    <a asp-controller="Home" asp-action="Ask" class="primary-button">Ask a question</a>
 </div>
 
+@foreach (var question in Model)
+{
 
 <div class="box">
+    <h3> <a href="#">@question.Title</a></h3>
+    <p> @question.Text</p>
+    <p><i>@question.User.UserName <time>@question.DateCreated</time></i></p>
+</div>
+}
+
+@*<div class="box">
     <h3> <a href="#">Q title</a></h3>
     <p>Body of the question</p>
     <p><i>Asked by John Doe on <time>12/12/12 4:56PM</time></i></p>
@@ -18,10 +28,4 @@
     <h3> <a href="#">Q title</a></h3>
     <p>Body of the question</p>
     <p><i>Asked by John Doe on <time>12/12/12 4:56PM</time></i></p>
-</div>
-
-<div class="box">
-    <h3> <a href="#">Q title</a></h3>
-    <p>Body of the question</p>
-    <p><i>Asked by John Doe on <time>12/12/12 4:56PM</time></i></p>
-</div>
+</div>*@
