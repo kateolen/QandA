@@ -19,8 +19,19 @@
                 <b>Q & A</b>
             </a>
         </div>
-        <input class="search" type="text" placeholder="Search" />
-        <a asp-controller="Account" asp-action="SignOut" class="btn-signin nav-item"> <i class="fas fa-user-secret"></i> Sign out (@User.Identity.Name)</a>
+        <form asp-controller="Home" asp-action="Search" method="post">
+            <input class="search" name="Search" id="Search" type="text" placeholder="Search" />
+        </form>
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Account" asp-action="SignOut" class="btn-signin nav-item"> <i class="fas fa-user-secret"></i> Sign out (@User.Identity.Name)</a>
+
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="SignIn" class="btn-signin nav-item"> <i class="fas fa-user-secret"></i> Sign In</a>
+
+        }
     </div>
     <div>
         <br>
